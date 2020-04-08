@@ -39,7 +39,6 @@ public class Inductance {
         phaseSpacing=(float)(Math.cbrt(ab*bc*ca));
         netRadius=0.3894f*diameter;
         inductance=(float)(0.0000002*Math.log(phaseSpacing/netRadius));
-        Log.d("Fuck","diameter = "+diameter+" numberOflayer= "+numberOfLayers+" phase spacing="+phaseSpacing+" net radius="+netRadius);
 
 
         return inductance;
