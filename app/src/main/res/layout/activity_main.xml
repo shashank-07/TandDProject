@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ToggleButton
+                android:id="@+id/symmetry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:layout_gravity="center"
+                android:textOff="Symmetrical"
+                android:textOn="Asymmetrical"/>
+
+            <EditText
+                android:id="@+id/spacing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Spacing between phase conductors"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/symmetry"
+                tools:layout_editor_absoluteX="102dp" />
+            <LinearLayout
+                android:id="@+id/asymetricalSpacing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3"
+                android:orientation="horizontal">
+                <EditText
+                    android:layout_margin="5dp"
+                    android:id="@+id/ab"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="AB length"
+                    android:inputType="number|numberDecimal"
+                    />
+                <EditText
+                    android:layout_margin="5dp"
+
+                    android:id="@+id/bc"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="BC length"
+                    android:inputType="number|numberDecimal"
+                    />
+                <EditText
+                    android:layout_margin="5dp"
+
+                    android:id="@+id/ca"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="CA length"
+                    android:inputType="number|numberDecimal"
+                    />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/subconductors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:ems="10"
+                android:hint="NUmber of subconductors"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/spacing"
+                tools:layout_editor_absoluteX="99dp" />
+
+            <EditText
+                android:id="@+id/subconductors_spacing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:ems="10"
+                android:hint="Spacing between subconductors"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/subconductors"
+                tools:layout_editor_absoluteX="101dp" />
+
+            <EditText
+                android:id="@+id/subconductor_strands"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ems="10"
+                android:hint="Number of strands in a subconductor"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/subconductors_spacing"
+                tools:layout_editor_absoluteX="99dp" />
+
+            <EditText
+                android:id="@+id/strandDiameter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:hint="Diameter of each strand"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/subconductor_strands"
+                tools:layout_editor_absoluteX="88dp" />
+
+            <EditText
+                android:id="@+id/length"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:hint="Length of line in km"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/strandDiameter"
+                tools:layout_editor_absoluteX="90dp" />
+
+            <Button
+                android:id="@+id/model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Model of the line"
+                app:layout_constraintTop_toBottomOf="@+id/length"
+                tools:layout_editor_absoluteX="158dp" />
+
+            <EditText
+                android:id="@+id/resistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:ems="10"
+                android:hint="Resistance"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/model"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/powerfrequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:ems="10"
+                android:hint="Power frequency"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/resistance"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/systemVoltage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:ems="10"
+                android:hint="Nominal system voltage"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/powerfrequency"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/endload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:ems="10"
+                android:hint="Receiving end load in MW"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/systemVoltage"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/powerfactor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:ems="10"
+                android:hint="Power factor of receiving end load "
+                android:inputType="number|numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/endload"
+                tools:layout_editor_absoluteX="0dp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter"
+                android:id="@+id/enter"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
