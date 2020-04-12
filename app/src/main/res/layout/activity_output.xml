@@ -39,6 +39,12 @@
                     android:id="@+id/fourth"
                     style="@style/outputText"
                     />
+                <TextView
+
+                    android:text="Charging current drawn from sending end substation "
+                    android:id="@+id/fifth"
+                    style="@style/outputText"
+                    />
 
             </LinearLayout>
 

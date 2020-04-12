@@ -8,8 +8,8 @@ import android.widget.TextView;
 public class OutputActivity extends AppCompatActivity {
 
     //Add text view and solution here following the format\
-    TextView first,second,third,fourth;
-    double solution1,solution2,solution3,solution4;
+    TextView first,second,third,fourth,fifth;
+    double solution1,solution2,solution3,solution4,solution5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,7 @@ public class OutputActivity extends AppCompatActivity {
         solution2=bundle.getDouble("solution2");
         solution3=bundle.getDouble("solution3");
         solution4=bundle.getDouble("solution4");
+        solution5=bundle.getDouble("solution5");
 
         init();
 
@@ -31,6 +32,7 @@ public class OutputActivity extends AppCompatActivity {
         second=findViewById(R.id.second);
         third=findViewById(R.id.third);
         fourth=findViewById(R.id.fourth);
+        fifth=findViewById(R.id.fifth);
 
         setText();
     }
@@ -41,6 +43,7 @@ public class OutputActivity extends AppCompatActivity {
         second.setText("Capacitance per phase per km="+solution2+" F/km");
         third.setText("Inductive Reactance of the line= "+solution3+" Ohm");
         fourth.setText("Capacitive Reactance of the line= "+solution4+" Ohm");
+        fifth.setText("Charging current drawn from sending substation= "+solution5+" A");
 
     }
 }

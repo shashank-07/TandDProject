@@ -24,8 +24,11 @@
                 android:textOff="Symmetrical"
                 android:textOn="Asymmetrical"/>
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
+
                 android:id="@+id/spacing"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -40,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:weightSum="3"
                 android:orientation="horizontal">
-                <EditText
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    app:met_floatingLabel="normal"
                     android:layout_margin="5dp"
                     android:id="@+id/ab"
                     android:layout_width="0dp"
@@ -50,7 +54,8 @@
                     android:hint="AB length"
                     android:inputType="number|numberDecimal"
                     />
-                <EditText
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    app:met_floatingLabel="normal"
                     android:layout_margin="5dp"
 
                     android:id="@+id/bc"
@@ -61,7 +66,8 @@
                     android:hint="BC length"
                     android:inputType="number|numberDecimal"
                     />
-                <EditText
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    app:met_floatingLabel="normal"
                     android:layout_margin="5dp"
 
                     android:id="@+id/ca"
@@ -74,13 +80,14 @@
                     />
             </LinearLayout>
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/subconductors"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:ems="10"
-                android:hint="NUmber of subconductors"
+                android:hint="Number of subconductors"
                 android:inputType="number|numberDecimal"
                 app:layout_constraintTop_toBottomOf="@+id/spacing"
                 tools:layout_editor_absoluteX="99dp" />
@@ -92,7 +99,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/subconductors"
                 android:orientation="horizontal">
 
-                <EditText
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    app:met_floatingLabel="normal"
                     android:id="@+id/subconductors_spacing"
                     android:layout_width="0dp"
                     android:layout_weight="2"
@@ -112,7 +120,8 @@
             </LinearLayout>
 
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/subconductor_strands"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,7 +132,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/subconductors_Spacing_layout"
                 tools:layout_editor_absoluteX="99dp" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/strandDiameter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,7 +144,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/subconductor_strands"
                 tools:layout_editor_absoluteX="88dp" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/length"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,7 +165,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/length"
                 tools:layout_editor_absoluteX="158dp" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/resistance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -165,7 +177,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/model"
                 tools:layout_editor_absoluteX="0dp" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/powerfrequency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -176,7 +189,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/resistance"
                 tools:layout_editor_absoluteX="0dp" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/systemVoltage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -187,7 +201,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/powerfrequency"
                 tools:layout_editor_absoluteX="0dp" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/endload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -198,7 +213,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/systemVoltage"
                 tools:layout_editor_absoluteX="0dp" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                app:met_floatingLabel="normal"
                 android:id="@+id/powerfactor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

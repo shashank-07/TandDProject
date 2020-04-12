@@ -19,6 +19,7 @@ import android.widget.ToggleButton;
 
 import com.example.tdproject.outputs.Capacitance;
 import com.example.tdproject.outputs.Inductance;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -30,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout asymSpacing,subSpacingLayout;
     float spacingPhaseAB,spacingPhaseBC,spacingPhaseCA;
     int limit=-1;
-    EditText spacingPhaseABInput,spacingPhaseBCInput,spacingPhaseCAInput,spacingPhaseInput,subconductorsInput,spacingSubInput,strandsInput,diameterInput,lengthInput,resistanceInput,powerFrequencyInput,nominalSysVoltageInput,recievinEndLoadInput,powerFactorInput;
-    double solution1,solution2,solution3,solution4;
+    MaterialEditText spacingPhaseABInput,spacingPhaseBCInput,spacingPhaseCAInput,spacingPhaseInput,subconductorsInput,spacingSubInput,strandsInput,diameterInput,lengthInput,resistanceInput,powerFrequencyInput,nominalSysVoltageInput,recievinEndLoadInput,powerFactorInput;
+    double solution1,solution2,solution3,solution4,solution5;
 
     //All input values
     String symmetry,model;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("solution2",solution2);
         intent.putExtra("solution3",solution3);
         intent.putExtra("solution4",solution4);
+        intent.putExtra("solution5",solution5);
 
         //End of solutions
         startActivity(intent);
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
       solution2=capacitance.getResult();
        solution3=inductance.getInductiveReactance(solution1);
       solution4=capacitance.getCapacitiveReactance(solution2);
+      solution5=capacitance.getChargingCurrent(solution4,nominalSysVoltage);
        goToOutput();
 
 

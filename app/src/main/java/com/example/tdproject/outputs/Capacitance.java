@@ -73,6 +73,9 @@ public class Capacitance {
     return lengthOfLine/(2*3.14*frequency*capacitance);
 
     }
+    public double getChargingCurrent(double capacitiveReactance,float voltage){
+        return voltage/capacitiveReactance;
+    }
 
 
 }
