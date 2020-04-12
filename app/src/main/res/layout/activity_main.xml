@@ -84,17 +84,33 @@
                 android:inputType="number|numberDecimal"
                 app:layout_constraintTop_toBottomOf="@+id/spacing"
                 tools:layout_editor_absoluteX="99dp" />
-
-            <EditText
-                android:id="@+id/subconductors_spacing"
+            <LinearLayout
+                android:id="@+id/subconductors_Spacing_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:ems="10"
-                android:hint="Spacing between subconductors"
-                android:inputType="number|numberDecimal"
+                android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@+id/subconductors"
-                tools:layout_editor_absoluteX="101dp" />
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/subconductors_spacing"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:ems="10"
+                    android:hint="Spacing between subconductors"
+                    android:inputType="number|numberDecimal" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/enterSubSpacing"
+                    android:layout_weight="1"
+                    android:text="Submissions left: 0"/>
+
+            </LinearLayout>
+
 
             <EditText
                 android:id="@+id/subconductor_strands"
@@ -104,7 +120,7 @@
                 android:ems="10"
                 android:hint="Number of strands in a subconductor"
                 android:inputType="number|numberDecimal"
-                app:layout_constraintTop_toBottomOf="@+id/subconductors_spacing"
+                app:layout_constraintTop_toBottomOf="@+id/subconductors_Spacing_layout"
                 tools:layout_editor_absoluteX="99dp" />
 
             <EditText
@@ -164,7 +180,7 @@
                 android:id="@+id/systemVoltage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="2dp"
                 android:ems="10"
                 android:hint="Nominal system voltage"
                 android:inputType="number|numberDecimal"

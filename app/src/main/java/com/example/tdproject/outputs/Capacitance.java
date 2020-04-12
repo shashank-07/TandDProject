@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.Stack;
 import java.util.Vector;
 
-public class Inductance {
+public class Capacitance {
     //spacing between phase subconductors
     float ab,bc,ca;
     float strandDiameter;
@@ -14,15 +14,15 @@ public class Inductance {
     float diameter;
     float phaseSpacing;
     float netRadius;
-    double inductance;
+    double capacitance;
     double sgmd;
     float subconductors;
+   Vector<Float> spacingSub;
     float frequency;
     float lengthOfLine;
-    Vector<Float> spacingSub;
 
 
-    public Inductance(float ab,float bc,float ca,float diameter,float numberOfStrands, float subConductors,    Vector <Float>  spacingSub,float frequency, float lengthOfLine){
+    public Capacitance(float ab,float bc,float ca,float diameter,float numberOfStrands, float subConductors,    Vector <Float>  spacingSub,float frequency, float lengthOfLine){
         this.ab=ab;
         this.bc=bc;
         this.ca=ca;
@@ -32,6 +32,7 @@ public class Inductance {
         this.spacingSub=spacingSub;
         this.frequency=frequency;
         this.lengthOfLine=lengthOfLine;
+
 
 
     }
@@ -51,8 +52,7 @@ public class Inductance {
         diameter=((2*numberOfLayers)-1)*strandDiameter;
         phaseSpacing=(float)(Math.cbrt(ab*bc*ca));
 
-        netRadius=0.3894f*diameter;
-        Log.d("WUT"," "+netRadius);
+        netRadius=diameter/2;
 
 
 
@@ -62,16 +62,18 @@ public class Inductance {
             prod*=spacingSub.get(rand);
         }
 
+        //SGMD calculation
         sgmd=Math.pow((Math.pow(netRadius,subconductors)*prod*prod),1/(subconductors*subconductors));
+        capacitance=((8.854e-12*2*3.14)/Math.log(phaseSpacing/sgmd));
+        return capacitance*1000;
 
-       inductance=(0.0000002*Math.log(phaseSpacing/sgmd));
-        return inductance*1000;
-
-
-    }
-    public double getInductiveReactance(double Inductance){
-        Log.d("INDUCT"," "+Inductance);
-        return 2*3.14*frequency*Inductance*lengthOfLine;
 
     }
+    public double getCapacitiveReactance(double capacitance){
+    return lengthOfLine/(2*3.14*frequency*capacitance);
+
+    }
+
+
 }
+

@@ -17,10 +17,28 @@
                 android:orientation="vertical">
                <TextView
 
-                   android:text=" Inductance per phase per km in H/km"
+                   android:text="Inductance per phase per km in H/km"
                    android:id="@+id/first"
                    style="@style/outputText"
                   />
+                <TextView
+
+                    android:text="Capacitance per phase per km in F/km"
+                    android:id="@+id/second"
+                    style="@style/outputText"
+                    />
+                <TextView
+
+                    android:text="Inductive reactance of the line in Ohm"
+                    android:id="@+id/third"
+                    style="@style/outputText"
+                    />
+                <TextView
+
+                    android:text="Capacitive reactance of line in Ohm "
+                    android:id="@+id/fourth"
+                    style="@style/outputText"
+                    />
 
             </LinearLayout>
 
