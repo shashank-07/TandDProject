@@ -20,6 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#FFF"
                 android:layout_gravity="center"
                 android:textOff="Symmetrical"
                 android:textOn="Asymmetrical"/>
@@ -33,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:ems="10"
-                android:hint="Spacing between phase conductors"
+                android:hint="Spacing between phase conductors (m)"
                 android:inputType="number|numberDecimal"
                 app:layout_constraintTop_toBottomOf="@+id/symmetry"
                 tools:layout_editor_absoluteX="102dp" />
@@ -95,26 +97,24 @@
                 android:id="@+id/subconductors_Spacing_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@+id/subconductors"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <com.rengwuxian.materialedittext.MaterialEditText
                     app:met_floatingLabel="normal"
                     android:id="@+id/subconductors_spacing"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="9dp"
                     android:ems="10"
-                    android:hint="Spacing between subconductors"
+                    android:hint="Spacing between subconductors (mm)"
                     android:inputType="number|numberDecimal" />
                 <Button
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/enterSubSpacing"
                     android:layout_weight="1"
+
                     android:text="Submissions left: 0"/>
 
             </LinearLayout>
@@ -127,6 +127,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:ems="10"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFF"
                 android:hint="Number of strands in a subconductor"
                 android:inputType="number|numberDecimal"
                 app:layout_constraintTop_toBottomOf="@+id/subconductors_Spacing_layout"
@@ -139,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:ems="10"
-                android:hint="Diameter of each strand"
+                android:hint="Diameter of each strand (mm)"
                 android:inputType="number|numberDecimal"
                 app:layout_constraintTop_toBottomOf="@+id/subconductor_strands"
                 tools:layout_editor_absoluteX="88dp" />
@@ -162,6 +164,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:text="Model of the line"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#FFF"
                 app:layout_constraintTop_toBottomOf="@+id/length"
                 tools:layout_editor_absoluteX="158dp" />
 
@@ -196,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:ems="10"
-                android:hint="Nominal system voltage"
+                android:hint="Nominal system voltage in kV"
                 android:inputType="number|numberDecimal"
                 app:layout_constraintTop_toBottomOf="@+id/powerfrequency"
                 tools:layout_editor_absoluteX="0dp" />
@@ -228,6 +232,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Enter"
+                android:background="@color/colorAccent"
                 android:id="@+id/enter"/>
         </LinearLayout>
 

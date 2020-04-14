@@ -4,17 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/output"
     tools:context=".OutputActivity">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/scrollView"
             >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/linearView"
                 android:orientation="vertical">
+                <TextView
+
+                    android:text="Team Members"
+                    android:id="@+id/team"
+                    style="@style/outputText"
+                    />
                <TextView
 
                    android:text="Inductance per phase per km in H/km"
@@ -45,7 +54,64 @@
                     android:id="@+id/fifth"
                     style="@style/outputText"
                     />
+                <TextView
 
+                    android:text="ABCD Parameters"
+                    android:id="@+id/sixth"
+                    style="@style/outputText"
+                    />
+                <TextView
+
+                    android:text="Sending Voltage"
+                    android:id="@+id/seventh"
+                    style="@style/outputText"
+                    />
+                <TextView
+
+                    android:text="Sending Current"
+                    android:id="@+id/eigth"
+                    style="@style/outputText"
+                    />
+                <TextView
+
+                    android:text="Voltage Regulation"
+                    android:id="@+id/ninth"
+                    style="@style/outputText"
+                    />
+                <TextView
+
+                    android:text="Power Loss"
+                    android:id="@+id/tenth"
+                    style="@style/outputText"
+                    />
+                <TextView
+
+                    android:text="Transmission Efficiency"
+                    android:id="@+id/eleventh"
+                    style="@style/outputText"
+                    />
+                <TextView
+                    android:layout_marginTop="40dp"
+                    android:text="Recieving circle diagram"
+                    android:id="@+id/thirteenth"
+                    style="@style/outputText"
+                    />
+                <com.jjoe64.graphview.GraphView
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:id="@+id/graph"
+                    android:importantForAutofill="no"/>
+                <TextView
+                    android:layout_marginTop="40dp"
+                    android:text="Sending circle diagram"
+                    android:id="@+id/fourteenth"
+                    style="@style/outputText"
+                    />
+                <com.jjoe64.graphview.GraphView
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:id="@+id/sendingCircle"
+                    android:importantForAutofill="no"/>
             </LinearLayout>
 
         </ScrollView>

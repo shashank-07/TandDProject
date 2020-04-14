@@ -65,16 +65,17 @@ public class Capacitance {
         //SGMD calculation
         sgmd=Math.pow((Math.pow(netRadius,subconductors)*prod*prod),1/(subconductors*subconductors));
         capacitance=((8.854e-12*2*3.14)/Math.log(phaseSpacing/sgmd));
+        Log.d("How","phase spacing:"+phaseSpacing+" sgmd="+sgmd);
         return capacitance*1000;
 
 
     }
     public double getCapacitiveReactance(double capacitance){
-    return lengthOfLine/(2*3.14*frequency*capacitance);
+    return 1/(2*3.14*frequency*capacitance*lengthOfLine);
 
     }
     public double getChargingCurrent(double capacitiveReactance,float voltage){
-        return voltage/capacitiveReactance;
+        return (voltage*1000)/capacitiveReactance;
     }
 
 

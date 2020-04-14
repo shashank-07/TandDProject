@@ -10,18 +10,16 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
-import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.tdproject.outputs.ABCD;
 import com.example.tdproject.outputs.Capacitance;
 import com.example.tdproject.outputs.Inductance;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-import java.util.ArrayList;
 import java.util.Stack;
 import java.util.Vector;
 
@@ -32,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     float spacingPhaseAB,spacingPhaseBC,spacingPhaseCA;
     int limit=-1;
     MaterialEditText spacingPhaseABInput,spacingPhaseBCInput,spacingPhaseCAInput,spacingPhaseInput,subconductorsInput,spacingSubInput,strandsInput,diameterInput,lengthInput,resistanceInput,powerFrequencyInput,nominalSysVoltageInput,recievinEndLoadInput,powerFactorInput;
-    double solution1,solution2,solution3,solution4,solution5;
-
+    double solution1,solution2,solution3,solution4,solution5,radius,rX,rY,sX,sY;
+    String solution6,solution7,solution8,solution9,solution10,solution11;
     //All input values
     String symmetry,model;
 
@@ -42,13 +40,18 @@ public class MainActivity extends AppCompatActivity {
 
     //Initialize solution class
     Inductance inductance;
+    ABCD abcd;
     Capacitance capacitance;
 
+    Complex a=new Complex(1,2);
+    Complex b=new Complex(2,3);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("Complex"," Add= "+ a.plus(b));
+
        init();
     }
 
@@ -60,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("solution3",solution3);
         intent.putExtra("solution4",solution4);
         intent.putExtra("solution5",solution5);
+        intent.putExtra("solution6",solution6);
+        intent.putExtra("solution7",solution7);
+        intent.putExtra("solution8",solution8);
+        intent.putExtra("solution9",solution9);
+        intent.putExtra("solution10",solution10);
+        intent.putExtra("solution11",solution11);
+        intent.putExtra("radius",radius);
+        intent.putExtra("rX",rX);
+        intent.putExtra("rY",rY);
+        intent.putExtra("sX",sX);
+        intent.putExtra("sY",sY);
 
         //End of solutions
         startActivity(intent);
@@ -85,7 +99,24 @@ public class MainActivity extends AppCompatActivity {
       solution2=capacitance.getResult();
        solution3=inductance.getInductiveReactance(solution1);
       solution4=capacitance.getCapacitiveReactance(solution2);
-      solution5=capacitance.getChargingCurrent(solution4,nominalSysVoltage);
+
+       abcd=new ABCD(resistance,length,solution3,solution4,model);
+       solution6=abcd.getParameters();
+       double Ir=abcd.recievingCurrent(recievinEndLoad,powerFactor,nominalSysVoltage);
+       Complex Vs=abcd.getSendingV(nominalSysVoltage,Ir);
+       solution7=String.valueOf(Vs.mod()/1000);
+       Complex sendingCurrent=abcd.getSendingI(nominalSysVoltage,Ir);
+       solution8=String.valueOf(sendingCurrent.mod());
+       solution9=String.valueOf(abcd.voltageReg(Vs,new Complex(nominalSysVoltage,0)));
+       double powerLoss=abcd.getPowerLoss(sendingCurrent.mod(),resistance,length,Vs);
+       solution10=String.valueOf(powerLoss);
+       solution11=String.valueOf(abcd.getTransmissionEfficiency(powerLoss,recievinEndLoad));
+       solution5=abcd.getChargingCurrent(model,Vs,nominalSysVoltage/1000);
+       radius=abcd.getRadius(Vs,nominalSysVoltage);
+       rX=abcd.getRecievingX(nominalSysVoltage);
+       rY=abcd.getRecievingY(nominalSysVoltage);
+       sX=abcd.getSendingX(Vs);
+       sY=abcd.getSendingY(Vs);
        goToOutput();
 
 
@@ -165,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                     if(!spacingSubInput.getText().toString().isEmpty()){
                         try{
                             float temp=Float.parseFloat(spacingSubInput.getText().toString());
-                            spacingSub.add(temp);
+                            spacingSub.add(temp/1000f);
                             limit--;
                             Toast.makeText(getApplicationContext(),temp+" Added",Toast.LENGTH_SHORT).show();
                             enterSubSpacing.setText("Submissions left: "+limit);
@@ -227,11 +258,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                     subconductors=Float.parseFloat(subconductorsInput.getText().toString());
                     strands=Float.parseFloat(strandsInput.getText().toString());
-                    diameter=Float.parseFloat(diameterInput.getText().toString());
+                    diameter=Float.parseFloat(diameterInput.getText().toString())/1000f;
                     length=Float.parseFloat(lengthInput.getText().toString());
                     resistance=Float.parseFloat(resistanceInput.getText().toString());
                     powerFrequency=Float.parseFloat(powerFrequencyInput.getText().toString());
-                    nominalSysVoltage=Float.parseFloat(nominalSysVoltageInput.getText().toString());
+                    nominalSysVoltage=(float) (Float.parseFloat(nominalSysVoltageInput.getText().toString())/Math.sqrt(3));
                     recievinEndLoad=Float.parseFloat(recievinEndLoadInput.getText().toString());
                     powerFactor=Float.parseFloat(powerFactorInput.getText().toString());
                     if(spacingSub.isEmpty()){
